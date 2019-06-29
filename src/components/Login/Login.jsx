@@ -1,28 +1,28 @@
 import React, { Component } from "react";
-import "./App.css";
+import "./Login.css";
 import { connect } from "react-redux";
 import defineUserNameAction from "../../actions/defineUserNameAction";
-import Login from "../Login/Login";
-class App extends Component {
+
+class Login extends Component {
   render() {
     return (
-      <div className="App">
-        <h1>Memory Game</h1>
-        <Login />
+      <div>
+        <p>Please choose your username</p>
+        <input type="text" name="userName" id="" />
       </div>
     );
   }
-}
 
-const mapStateToProps = state => ({
-  ...state
-});
+  defineUserName = () => {
+    this.props.defineUserName();
+  };
+}
 
 const mapDispatchToProps = dispatch => ({
   defineUserName: () => dispatch(defineUserNameAction())
 });
 
 export default connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps
-)(App);
+)(Login);

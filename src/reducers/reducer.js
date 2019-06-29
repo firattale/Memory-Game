@@ -5,7 +5,7 @@ const initialState = {
   score: 0
 };
 
-export default (state = initialState, action) => {
+const memoryApp = (state = initialState, action) => {
   switch (action.type) {
     case DEFINE_USERNAME:
       return {
@@ -16,3 +16,5 @@ export default (state = initialState, action) => {
       return state;
   }
 };
+
+export default memoryApp;

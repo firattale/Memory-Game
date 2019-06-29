@@ -1,8 +1,10 @@
 import DEFINE_USERNAME from "./actionTypes";
 
-export const defineUserNameActions = () => dispatch => {
+const defineUserNameActions = () => dispatch => {
   dispatch({
     type: DEFINE_USERNAME,
     payload: "firattale"
   });
 };
+
+export default defineUserNameActions;
