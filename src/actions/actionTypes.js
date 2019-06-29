@@ -1,0 +1,3 @@
+const DEFINE_USERNAME = "DEFINE_USERNAME";
+
+export default DEFINE_USERNAME;
