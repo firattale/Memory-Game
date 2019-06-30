@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import "./Login.css";
 import { connect } from "react-redux";
-import defineUserNameAction from "../../actions/defineUserNameAction";
-import handleLoginVisibility from "../../actions/defineUserNameAction";
+// import defineUserNameAction from "../../actions/defineUserNameAction";
+// import handleLoginVisibility from "../../actions/defineUserNameAction";
 
 class Login extends Component {
   state = { value: "" };
@@ -36,11 +36,11 @@ class Login extends Component {
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-  return {
-    onClick: () => {
-      dispatch(setVisibilityFilter(ownProps.filter));
-    }
-  };
+  // return {
+  //   onClick: () => {
+  //     dispatch(setVisibilityFilter(ownProps.filter));
+  //   }
+  // };
 };
 
 export default connect(
