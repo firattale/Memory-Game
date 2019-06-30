@@ -1,49 +1,31 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import "./Login.css";
-import { connect } from "react-redux";
-// import defineUserNameAction from "../../actions/defineUserNameAction";
-// import handleLoginVisibility from "../../actions/defineUserNameAction";
+import { useDispatch } from "react-redux";
+import defineUserNameAction from "../../actions/defineUserNameAction";
+import handleLoginVisibilityAction from "../../actions/handleLoginVisibilityAction";
 
-class Login extends Component {
-  state = { value: "" };
+const Login = () => {
+  const [value, setValue] = useState("");
+  const dispatch = useDispatch();
 
-  render() {
-    return (
-      <div>
-        <p>Please choose your username</p>
-        <form onSubmit={this.handleSubmit}>
-          <input
-            type="text"
-            name="userName"
-            id=""
-            onChange={this.handleChange}
-          />
-        </form>
-      </div>
-    );
-  }
-
-  handleChange = event => {
-    this.setState({ value: event.target.value });
+  const handleChange = event => {
+    setValue(event.target.value);
   };
 
-  handleSubmit = e => {
-    this.props.defineUserName(this.state.value);
-    this.props.handleLoginVisibility();
+  const handleSubmit = e => {
     e.preventDefault();
-    console.log(`submitted`);
+    dispatch(defineUserNameAction(value));
+    dispatch(handleLoginVisibilityAction());
   };
-}
 
-const mapDispatchToProps = (dispatch, ownProps) => {
-  // return {
-  //   onClick: () => {
-  //     dispatch(setVisibilityFilter(ownProps.filter));
-  //   }
-  // };
+  return (
+    <div>
+      <p>Please choose your username</p>
+      <form onSubmit={handleSubmit}>
+        <input type="text" name="userName" id="" onChange={handleChange} />
+      </form>
+    </div>
+  );
 };
 
-export default connect(
-  null,
-  mapDispatchToProps
-)(Login);
+export default Login;
