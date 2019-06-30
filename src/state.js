@@ -3,7 +3,8 @@ const initialState = {
   score: 0,
   loginVisibility: false,
   isGameFinished: false,
-  cards: []
+  cards: [],
+  scoreBoard: []
 };
 
 export default initialState;

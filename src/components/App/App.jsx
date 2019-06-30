@@ -7,6 +7,7 @@ import defineCardsAction from "../../actions/defineCardsAction";
 import Login from "../Login";
 import { useSelector, useDispatch } from "react-redux";
 import Timer from "react-compound-timer";
+import defineScoreBoardAction from "../../actions/defineScoreBoardAction";
 
 export default function App() {
   const [flipped, setFlipped] = useState([]);
@@ -65,7 +66,12 @@ export default function App() {
       const score = document.getElementById("score");
       dispatch(gameFinishedAction(true));
       if (score) {
-        dispatch(defineGameScoreAction(score.innerHTML));
+        const userInfo = {
+          userName: userName,
+          score: score.innerHTML
+        };
+        dispatch(defineGameScoreAction(userInfo.score));
+        dispatch(defineScoreBoardAction(userInfo));
       }
     }
   };
