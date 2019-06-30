@@ -5,7 +5,7 @@ import { UPDATE_SCOREBOARD } from "./actionTypes";
 import { DEFINE_USERNAME } from "./actionTypes";
 import { GAME_FINISHED } from "./actionTypes";
 import { HANDLE_LOGIN_VISIBILITY } from "./actionTypes";
-const cards = initializeDeck();
+export const cards = initializeDeck();
 
 export function handleLoginVisibilityAction(state) {
   return { type: HANDLE_LOGIN_VISIBILITY, payload: state };
@@ -15,7 +15,7 @@ export function gameFinishedAction(state) {
   return { type: GAME_FINISHED, payload: state };
 }
 
-export function defineUserNameActions(text) {
+export function defineUserNameAction(text) {
   return { type: DEFINE_USERNAME, payload: text };
 }
 

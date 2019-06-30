@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Form, Button } from "react-bootstrap";
 import {
-  defineUserNameActions,
+  defineUserNameAction,
   handleLoginVisibilityAction
 } from "../../actions/actions";
 import "./Login.css";
@@ -17,7 +17,7 @@ const Login = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    dispatch(defineUserNameActions(value));
+    dispatch(defineUserNameAction(value));
     dispatch(handleLoginVisibilityAction(true));
   };
 
