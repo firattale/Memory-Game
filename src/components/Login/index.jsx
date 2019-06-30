@@ -7,7 +7,7 @@ import {
 } from "../../actions/actions";
 import "./Login.css";
 
-const Login = () => {
+export const Login = () => {
   const [value, setValue] = useState("");
   const dispatch = useDispatch();
 
