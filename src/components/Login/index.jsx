@@ -1,8 +1,11 @@
 import React, { useState } from "react";
-import "./Login.css";
 import { useDispatch } from "react-redux";
-import defineUserNameAction from "../../actions/defineUserNameAction";
-import handleLoginVisibilityAction from "../../actions/handleLoginVisibilityAction";
+import { Form, Button } from "react-bootstrap";
+import {
+  defineUserNameActions,
+  handleLoginVisibilityAction
+} from "../../actions/actions";
+import "./Login.css";
 
 const Login = () => {
   const [value, setValue] = useState("");
@@ -14,16 +17,27 @@ const Login = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    dispatch(defineUserNameAction(value));
+    dispatch(defineUserNameActions(value));
     dispatch(handleLoginVisibilityAction(true));
   };
 
   return (
     <div>
-      <p>Please choose your username</p>
-      <form onSubmit={handleSubmit}>
-        <input type="text" name="userName" id="" onChange={handleChange} />
-      </form>
+      <h3>Please choose your username</h3>
+      <Form onSubmit={handleSubmit} className="login">
+        <Form.Group controlId="formBasicEmail">
+          <Form.Label>User Name</Form.Label>
+          <Form.Control
+            required
+            type="text"
+            placeholder="Enter username"
+            onChange={handleChange}
+          />
+        </Form.Group>
+        <Button variant="primary" type="submit" onClick={handleSubmit}>
+          Submit
+        </Button>
+      </Form>
     </div>
   );
 };

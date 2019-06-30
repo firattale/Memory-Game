@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Card from "../Card";
 import "./styles.css";
+
 export default function Board({
   disabled,
   dimension,

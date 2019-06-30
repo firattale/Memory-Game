@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
-import Board from "../Board";
-import ScoreBoard from "../ScoreBoard";
-import gameFinishedAction from "../../actions/gameFinishedAction";
-import defineGameScoreAction from "../../actions/defineGameScoreAction";
-import defineCardsAction from "../../actions/defineCardsAction";
-import Login from "../Login";
 import { useSelector, useDispatch } from "react-redux";
 import Timer from "react-compound-timer";
-import defineScoreBoardAction from "../../actions/defineScoreBoardAction";
+import Board from "../Board";
+import ScoreBoard from "../ScoreBoard";
+import Login from "../Login";
+import {
+  gameFinishedAction,
+  defineScoreBoardAction,
+  defineCardsAction,
+  defineGameScoreAction
+} from "../../actions/actions";
 
 export default function App() {
   const [flipped, setFlipped] = useState([]);
@@ -101,9 +103,9 @@ export default function App() {
       {!isGameFinished && loginVisibility && (
         <div>
           <Timer>
-            <div>
-              Point:
-              <div id="score">
+            <div style={{ display: "flex" }}>
+              Point :
+              <div id="score" style={{ marginLeft: `10px` }}>
                 <Timer.Seconds />
               </div>
             </div>
