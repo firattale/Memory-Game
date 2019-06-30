@@ -1,6 +1,10 @@
-import { DEFINE_USERNAME } from "../actions/actionTypes";
-import { HANDLE_LOGIN_VISIBILITY } from "../actions/actionTypes";
-import { GAME_FINISHED } from "../actions/actionTypes";
+import {
+  GAME_FINISHED,
+  DEFINE_GAME_SCORE,
+  HANDLE_LOGIN_VISIBILITY,
+  DEFINE_USERNAME,
+  DEFINE_CARDS
+} from "../actions/actionTypes";
 import initialState from "../state";
 
 const memoryApp = (state = initialState, action) => {
@@ -19,6 +23,16 @@ const memoryApp = (state = initialState, action) => {
       return {
         ...state,
         isGameFinished: action.payload
+      };
+    case DEFINE_GAME_SCORE:
+      return {
+        ...state,
+        score: action.payload
+      };
+    case DEFINE_CARDS:
+      return {
+        ...state,
+        cards: action.payload
       };
     default:
       return state;

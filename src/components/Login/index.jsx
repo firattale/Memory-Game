@@ -15,7 +15,7 @@ const Login = () => {
   const handleSubmit = e => {
     e.preventDefault();
     dispatch(defineUserNameAction(value));
-    dispatch(handleLoginVisibilityAction());
+    dispatch(handleLoginVisibilityAction(true));
   };
 
   return (

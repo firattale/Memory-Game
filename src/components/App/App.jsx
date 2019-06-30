@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 import Board from "../Board";
 import ScoreBoard from "../ScoreBoard";
 import gameFinishedAction from "../../actions/gameFinishedAction";
+import defineGameScoreAction from "../../actions/defineGameScoreAction";
+import defineCardsAction from "../../actions/defineCardsAction";
 import Login from "../Login";
 import { useSelector, useDispatch } from "react-redux";
 import Timer from "react-compound-timer";
-import initializeDeck from "../../utils";
 
 export default function App() {
-  const [cards, setCards] = useState([]);
   const [flipped, setFlipped] = useState([]);
   const [solved, setSolved] = useState([]);
   const [dimension, setDimension] = useState(400);
@@ -16,12 +16,13 @@ export default function App() {
   const loginVisibility = useSelector(state => state.loginVisibility);
   const userName = useSelector(state => state.userName);
   const isGameFinished = useSelector(state => state.isGameFinished);
+  const cards = useSelector(state => state.cards);
   const dispatch = useDispatch();
 
   useEffect(() => {
     resizeBoard();
-    setCards(initializeDeck());
-  }, []);
+    dispatch(defineCardsAction());
+  }, [dispatch]);
 
   useEffect(() => {
     const resizeListener = window.addEventListener("resize", resizeBoard);
@@ -55,8 +56,17 @@ export default function App() {
   };
 
   const checkGameStatus = () => {
-    if (cards.length === solved.length && cards.length !== 0) {
-      dispatch(gameFinishedAction());
+    if (
+      cards.length === solved.length &&
+      !isGameFinished &&
+      cards.length !== 0
+    ) {
+      setSolved([]);
+      const score = document.getElementById("score");
+      dispatch(gameFinishedAction(true));
+      if (score) {
+        dispatch(defineGameScoreAction(score.innerHTML));
+      }
     }
   };
 
@@ -72,7 +82,7 @@ export default function App() {
         setSolved([...solved, ...flipped, id]);
         resetCards();
       } else {
-        setTimeout(resetCards, 2000);
+        setTimeout(resetCards, 1000);
       }
     }
   };
@@ -83,9 +93,16 @@ export default function App() {
       {!isGameFinished && !loginVisibility && <Login />}
       {!isGameFinished && loginVisibility && <h3>UserName: {userName}</h3>}
       {!isGameFinished && loginVisibility && (
-        <Timer>
-          Score: <Timer.Seconds />
-        </Timer>
+        <div>
+          <Timer>
+            <div>
+              Point:
+              <div id="score">
+                <Timer.Seconds />
+              </div>
+            </div>
+          </Timer>
+        </div>
       )}
       {loginVisibility && !isGameFinished && (
         <Board
@@ -97,7 +114,7 @@ export default function App() {
           disabled={disabled}
         />
       )}
-      {isGameFinished && <ScoreBoard />}{" "}
+      {isGameFinished && <ScoreBoard />}
     </div>
   );
 }
