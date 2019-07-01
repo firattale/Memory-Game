@@ -1,15 +1,23 @@
 {
   "files": {
     "main.css": "/Memory-Game/static/css/main.3a95c950.chunk.css",
-    "main.js": "/Memory-Game/static/js/main.fd228f86.chunk.js",
-    "main.js.map": "/Memory-Game/static/js/main.fd228f86.chunk.js.map",
+    "main.js": "/Memory-Game/static/js/main.0ff37d53.chunk.js",
+    "main.js.map": "/Memory-Game/static/js/main.0ff37d53.chunk.js.map",
     "runtime~main.js": "/Memory-Game/static/js/runtime~main.81d8dd5c.js",
     "runtime~main.js.map": "/Memory-Game/static/js/runtime~main.81d8dd5c.js.map",
-    "static/js/2.fc4813e0.chunk.js": "/Memory-Game/static/js/2.fc4813e0.chunk.js",
-    "static/js/2.fc4813e0.chunk.js.map": "/Memory-Game/static/js/2.fc4813e0.chunk.js.map",
+    "static/js/2.a4a304c3.chunk.js": "/Memory-Game/static/js/2.a4a304c3.chunk.js",
+    "static/js/2.a4a304c3.chunk.js.map": "/Memory-Game/static/js/2.a4a304c3.chunk.js.map",
     "index.html": "/Memory-Game/index.html",
-    "precache-manifest.55f808fa5e6d4a94431ae8e0e6af909f.js": "/Memory-Game/precache-manifest.55f808fa5e6d4a94431ae8e0e6af909f.js",
+    "precache-manifest.41db1706c98de962c3b7a76639b5473e.js": "/Memory-Game/precache-manifest.41db1706c98de962c3b7a76639b5473e.js",
     "service-worker.js": "/Memory-Game/service-worker.js",
-    "static/css/main.3a95c950.chunk.css.map": "/Memory-Game/static/css/main.3a95c950.chunk.css.map"
+    "static/css/main.3a95c950.chunk.css.map": "/Memory-Game/static/css/main.3a95c950.chunk.css.map",
+    "static/media/angular.png": "/Memory-Game/static/media/angular.41534e3f.png",
+    "static/media/back.png": "/Memory-Game/static/media/back.78db6955.png",
+    "static/media/javascript.png": "/Memory-Game/static/media/javascript.6236315a.png",
+    "static/media/rails.png": "/Memory-Game/static/media/rails.45b8c0f3.png",
+    "static/media/react.png": "/Memory-Game/static/media/react.8d525ef0.png",
+    "static/media/reactu.png": "/Memory-Game/static/media/reactu.0902c5f0.png",
+    "static/media/redux.png": "/Memory-Game/static/media/redux.df2c2100.png",
+    "static/media/ruby.png": "/Memory-Game/static/media/ruby.078e4e21.png"
   }
 }
