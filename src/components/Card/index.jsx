@@ -23,7 +23,11 @@ export default function Card({
           alt=""
           style={{ width, height }}
           className={flipped ? "front" : "back"}
-          src={flipped || solved ? `/img/${type}.png` : "/img/back.png"}
+          src={
+            flipped || solved
+              ? require(`../../assets/img/${type}.png`)
+              : require("../../assets/img/back.png")
+          }
         />
       </div>
     </div>
