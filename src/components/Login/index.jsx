@@ -26,8 +26,8 @@ export const Login = () => {
       <h3>Please choose your username</h3>
       <Form onSubmit={handleSubmit} className="login">
         <Form.Group controlId="formBasicEmail">
-          <Form.Label>User Name</Form.Label>
           <Form.Control
+            className="w-50 d-inline"
             required
             type="text"
             placeholder="Enter username"

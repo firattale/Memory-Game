@@ -11,7 +11,10 @@ export function ScoreBoard() {
   const dispatch = useDispatch();
   const score = useSelector(state => state.score);
   const userScores = useSelector(state => state.scoreBoard);
+  console.log("userScores", userScores);
   userScores.sort(compare);
+  console.log("userScores", userScores);
+
   const handleClick = () => {
     dispatch(gameFinishedAction(false));
     dispatch(handleLoginVisibilityAction(false));
